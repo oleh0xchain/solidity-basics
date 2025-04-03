@@ -1,0 +1,15 @@
+# Remix build artifacts
+artifacts/
+build/
+build-info/
+.cache/
+remix-tests/
+.states/
+*.json
+
+# VS Code / MacOS / system files 
+.vscode/
+.DS_Store
+
+# Dependency folders
+node_modules/
