@@ -3,22 +3,26 @@ pragma solidity ^0.8.28;
 
 contract Basics {
 
-   uint public counter; 
+   address public myAddress; 
 
-   function setCounter (uint256 _count) public{
-      counter = _count;
-   } 
-   
-   function increment() public {
-      counter += 1; 
+   function setAddress () public {
+      myAddress = msg.sender;
    }
 
-   function decrement () public{
-      counter-=1; 
+   function sendMoney(address payable _to) public payable  {
+
+      _to.transfer(msg.value);
+
    }
 
-   function math () public{
-      counter = counter / 2; 
+   function getBalance(address _address) public view returns (uint256){
+      return _address.balance; 
    }
+
+   function getAddress () public view returns (address){
+      return myAddress;
+   }
+
+
 
 }
