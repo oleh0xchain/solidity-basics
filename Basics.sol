@@ -2,15 +2,16 @@
 pragma solidity ^0.8.28;
 
 contract Basics {
+   enum Skills {NOOB, ADVANCED, PRO}
 
-   bool public amIGay = false; 
-   bool public isUserPoor; 
+   Skills public someoneSkills;
 
-   bool public x = true;
-   bool public y = false; 
+   function educate() public {
+      someoneSkills = Skills.ADVANCED;
+   } 
 
-   bool public z = (!x);
-   bool public v = (!y);
-   bool public b = (x || y); 
-   bool public n = (x && y); 
+   function educateTo(uint256 _skillLevel) public{
+      someoneSkills = Skills(_skillLevel); 
+   } 
+
 }
