@@ -3,26 +3,14 @@ pragma solidity ^0.8.28;
 
 contract Basics {
 
-   address public myAddress; 
+   bool public amIGay = false; 
+   bool public isUserPoor; 
 
-   function setAddress () public {
-      myAddress = msg.sender;
-   }
+   bool public x = true;
+   bool public y = false; 
 
-   function sendMoney(address payable _to) public payable  {
-
-      _to.transfer(msg.value);
-
-   }
-
-   function getBalance(address _address) public view returns (uint256){
-      return _address.balance; 
-   }
-
-   function getAddress () public view returns (address){
-      return myAddress;
-   }
-
-
-
+   bool public z = (!x);
+   bool public v = (!y);
+   bool public b = (x || y); 
+   bool public n = (x && y); 
 }
