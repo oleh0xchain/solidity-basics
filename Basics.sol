@@ -3,54 +3,27 @@ pragma solidity ^0.8.28;
 
 contract Basics {
 
-  
+   uint256[] public myTickets = [1, 2 ,33334343, 4352454365424325, 0];
 
-   struct UserData {
-      string name; 
-      uint256 age; 
-      bool isGay; 
+   function addTicketToArray(uint256 _ticketNumber) public {
+      myTickets.push(_ticketNumber);
 
    }
-   mapping(address => UserData) public users;
-
-   UserData public me; 
-
-   function getUserName(address _userAddress) public view returns (string memory){
-      return users[_userAddress].name; 
+   
+   function getAmountOfTickets() public view returns (uint256){
+      return myTickets.length;
    }
 
-   function getUserAge(address _userAddress) public view returns (uint256){
-      return users[_userAddress].age; 
+   function getTicketsFromArray(uint256 _arrayNumber) public view returns(uint256){
+      return myTickets[_arrayNumber]; 
    }
 
-   function getUserStatus(address _userAddress) public view returns (bool){
-      return users[_userAddress].isGay; 
+    function swapTicket(uint256 _arrayNumber, uint256 _ticket) public {
+      myTickets[_arrayNumber] = _ticket;
    }
 
-   function setUserData (string memory _name, uint256 _age, bool _isGay) public {
-      users[msg.sender] = UserData(_name, _age, _isGay); 
-   }
-
-
-   function setUserData1() public{
-      me = UserData("Nick", 26, false);
-   }
-
-   function setUserData2() public {
-      me = UserData({
-         name: "Mike",
-         age: 25,
-         isGay: true
-      });
-   }
-
-   function setUserData3() public{
-      me.name = "Ivan"; 
-      me.age = 54; 
-      me.isGay = false; 
-   }
-
-
-
+   function getNewTicketsPool(uint256[] memory _newArray) public payable{
+      myTickets = _newArray; 
+   } 
 
 }
