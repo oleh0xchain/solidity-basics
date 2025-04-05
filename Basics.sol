@@ -2,16 +2,21 @@
 pragma solidity ^0.8.28;
 
 contract Basics {
-   enum Skills {NOOB, ADVANCED, PRO}
+   
+   mapping (address => uint256 ) public userBalances; 
 
-   Skills public someoneSkills;
+   function deposit() public payable {
+      userBalances[msg.sender] += msg.value; 
+   }
 
-   function educate() public {
-      someoneSkills = Skills.ADVANCED;
+   function addBalance(address _user, uint256 _balance) public{
+      userBalances [_user] = _balance;
    } 
 
-   function educateTo(uint256 _skillLevel) public{
-      someoneSkills = Skills(_skillLevel); 
-   } 
+   function getBalance(address _user) public view returns (uint256){
+      return userBalances[_user];
+   }
+
+
 
 }
